@@ -1,0 +1,10 @@
+VAGRANTFILE_MIN_VERSION = ">= 2.2.10"
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.require_version VAGRANTFILE_MIN_VERSION
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "ubuntu/focal64"
+  config.vm.synced_folder "../", "/vagrant"
+  config.vm.provision "shell", path: "bootstrap.sh"
+end
