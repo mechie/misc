@@ -16,4 +16,5 @@ sudo apt-get update &&
   sudo apt-get install --yes curl git
 
 # Install Rust
-su - vagrant --command "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
+su - vagrant --command "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y" &&
+  source /home/vagrant/.cargo/env
