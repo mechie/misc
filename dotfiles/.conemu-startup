@@ -1,0 +1,3 @@
+powershell.exe -new_console:a:d:"path\to\dev":t:"posh":f
+-new_console:t:"git":d:C:\dev set "PATH=%ConEmuDir%\..\Git\usr\bin;%PATH%" & %ConEmuDir%\..\Git\git-cmd.exe --no-cd --command=%ConEmuBaseDirShort%\conemu-msys2-64.exe /usr/bin/bash.exe -l -i -new_console:p
+powershell.exe -new_console:a:d:"path\to\proj":t:"<ProjName>" -NoExit -Command "rm .\venv\ -r ; py -m venv .\venv ; .\venv\Scripts\Activate.ps1 ; py -m pip install --upgrade pip wheel setuptools ; <other setup code here>"
