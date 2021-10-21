@@ -5,6 +5,7 @@
 	email = gm@sal.cat
 [alias]
 	who = "blame -wMC"
+	whoadd = "! f() { git log --follow --find-renames=40% --diff-filter=A -- **${1} ; }; f"
 	aa = "! git add --all ; git status"
 	pf = "push --force"
 	newb = "checkout -b"
