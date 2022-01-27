@@ -4,6 +4,7 @@
 	name = Guillem Martinez Salvador
 	email = gm@sal.cat
 [alias]
+    first = "! git reset ; git commit --allow-empty --message='Initial commit.'"
 	who = "blame -wMC"
 	whoadd = "! f() { git log --follow --find-renames=40% --diff-filter=A -- **${1} ; }; f"
 	aa = "! git add --all ; git status"
