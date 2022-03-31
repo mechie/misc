@@ -3,6 +3,8 @@
 [user]
 	name = Guillem Martinez Salvador
 	email = gm@sal.cat
+;[includeIf "gitdir/i:personal/"]
+;	path = personal.gitconfig
 [alias]
     first = "! git reset ; git commit --allow-empty --message='Initial commit.'"
 	who = "blame -wMC"
