@@ -18,6 +18,7 @@
 	newb = "checkout -b"
 	newp = "! f() { BRANCH_NAME=$(git branch --show-current); DEFAULT_ORIGIN=$(git remote | head -1); git push --set-upstream $DEFAULT_ORIGIN $BRANCH_NAME; }; f"
 	oops = "commit --amend --no-edit"
+	typo = "commit --amend -c HEAD"
 	uncommit = "reset --soft HEAD^"
 	dif = "difftool -y"
 	logp = "log --graph --date=relative --pretty=tformat:\"%Cred%h%Creset -%C(auto)%d%Creset %s (%Cgreen%an%Creset %C(bold blue)%ad%Creset)\""
