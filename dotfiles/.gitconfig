@@ -25,3 +25,5 @@
 	url = "! f() { REPO_URL=$(git config remote.origin.url); printf \"${REPO_URL%%.git}\" > /dev/clipboard; echo \"Copied ${REPO_URL%%.git} to clipboard.\"; }; f"
 	shake = "! { git for-each-ref --format \"%(refname:short)\" refs/heads --merged=main & git for-each-ref --format \"%(refname:short)\" refs/heads --merged=master; } 2> /dev/null | grep -v -e master -e main -e `git rev-parse --abbrev-ref HEAD` | sort -u | xargs --no-run-if-empty git branch -d"
 	shakeall = "! f() { for d in `find \"${1:-/}\" -name \".git\" -type d -not -path \"*/\\.git/*\"`; do cd `dirname $d`; echo `pwd`:; git shake; echo; done }; f"
+	freeze = "update-index --assume-unchanged"
+	thaw = "update-index --no-assume-unchanged"
