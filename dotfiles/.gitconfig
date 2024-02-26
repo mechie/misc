@@ -17,6 +17,7 @@
 	pf = "push --force"
 	newb = "checkout -b"
 	newp = "! f() { BRANCH_NAME=$(git branch --show-current); DEFAULT_ORIGIN=$(git remote | head -1); git push --set-upstream $DEFAULT_ORIGIN $BRANCH_NAME; }; f"
+	newpf = "! f() { BRANCH_NAME=$(git branch --show-current); DEFAULT_ORIGIN=$(git remote | head -1); git push --force --set-upstream $DEFAULT_ORIGIN $BRANCH_NAME; }; f"
 	oops = "commit --amend --no-edit"
 	typo = "commit --amend -c HEAD"
 	uncommit = "reset --soft HEAD^"
@@ -27,3 +28,4 @@
 	shakeall = "! f() { for d in `find \"${1:-/}\" -name \".git\" -type d -not -path \"*/\\.git/*\"`; do cd `dirname $d`; echo `pwd`:; git shake; echo; done }; f"
 	freeze = "update-index --assume-unchanged"
 	thaw = "update-index --no-assume-unchanged"
+	rc = "-c core.editor=true rebase --continue"
