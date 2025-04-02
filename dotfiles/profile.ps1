@@ -1,6 +1,16 @@
 # Place in $PROFILE.CurrentUserAllHosts
 function Prompt {
     Write-Host (";") -NoNewLine -ForegroundColor $(If (($LastExitCode -eq $null -or $LastExitCode -eq 0) -and ($?)) {"Green"} else {"Red"})
+
+    [bool] $isAdmin = ([Security.Principal.WindowsPrincipal] `
+        [Security.Principal.WindowsIdentity]::GetCurrent() `
+        ).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+    [string] $title = If ($isAdmin) {"! "} else {""};
+    $title += "$($executionContext.SessionState.Path.CurrentLocation)".
+        Replace("${HOME}", "~").
+        Replace('\', '/');
+    $Host.UI.RawUI.WindowTitle = $title;
+
     return " "
 }
 
