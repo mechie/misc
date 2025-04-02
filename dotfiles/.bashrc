@@ -15,4 +15,10 @@ alias ls='ls --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-PS1='$([ $? != 0 ] && echo "\[\e[0;31m\]");\[\e[0;00m\] '
+
+if tput setaf 1 > /dev/null 2>&1; then
+  # We have color support, red/green prompt based on $?
+  PS1='$([ $? != 0 ] && printf "\[\033[0;31m\]" || printf "\[\033[0;32m\]");\[\033[0;00m\] '
+else
+  PS1='; '
+fi
