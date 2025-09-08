@@ -25,4 +25,21 @@ function GetCommandPath([string]$Command) {
     }
 }
 
+function AwsLogin([string]$ProfileName) {
+    if ([string]::IsNullOrWhitespace("${ProfileName}")) {
+        if ([string]::IsNullOrWhitespace("${env:AWS_PROFILE}")) {
+            Write-Host "; aws configure list-profiles"
+            aws configure list-profiles
+            Write-Error("aws-login must be called with a profile name from the above")
+            return
+        }
+    }
+    else {
+        $env:AWS_PROFILE = "${ProfileName}"
+    }
+
+    aws sso login
+}
+
 Set-Alias -Name which -Value GetCommandPath
+Set-Alias -Name aws-login -Value AwsLogin
