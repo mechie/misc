@@ -8,7 +8,9 @@ function Prompt {
     [string] $title = If ($isAdmin) {"! "} else {""};
     $title += "$($executionContext.SessionState.Path.CurrentLocation)".
         Replace("${HOME}", "~").
-        Replace('\', '/');
+        Replace('\', '/').
+        Replace('~/repositories/', '~/r/').
+        Replace('~/r/personal/', '~/r/p/');
     $Host.UI.RawUI.WindowTitle = $title;
 
     return " "
