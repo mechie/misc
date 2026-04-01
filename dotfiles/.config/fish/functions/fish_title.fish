@@ -9,7 +9,7 @@ function __profile_display_path
   echo $p
 end
 
-function fish_tab_title --description 'Set terminal window title to shortened PWD'
+function fish_title --description 'Set terminal window title to shortened PWD'
     set --local title (__profile_display_path)
 
     if test (id -u) -eq 0
