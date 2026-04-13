@@ -3,6 +3,7 @@ if status is-interactive
 end
 
 set --global fish_greeting ""
+set --global fish_prompt_pwd_dir_length 5
 set --global --export EDITOR "code --wait"
 
 if test -f "$HOME/.config/fish/local.secrets.fish"
